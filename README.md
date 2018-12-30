@@ -18,7 +18,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
 
 ## Example Breadboard Configuration
 
-Obviously, before use the code *main.c* needs to be uploded to the ATTINY85 via any ISP programmer.
+Obviously, before use, the code *main.c* needs to be programmed on the device via any ISP programmer.
 
 ![](images/Fritzing_Layout_1.png)
 
