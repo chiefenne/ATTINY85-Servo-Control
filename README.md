@@ -17,7 +17,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  - The pins for servo and LED can be configured by the corresponding macros (SERVO_PORT, LED_PORT). Do not use VCC, GND and RESET pins
 
 ## Example Breadboard Configuration
-![](images/Fritzing_Layout.png)
+![](images/Fritzing_Layout_1.png)
 
 ## Credits
  - The idea was found in the [AVR Freaks Forum](https://www.avrfreaks.net/comment/810846#comment-810846) posted by user **JimK**
