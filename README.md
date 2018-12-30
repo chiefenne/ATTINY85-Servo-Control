@@ -1,6 +1,8 @@
 
 # ATTINY85 Servo Control
 
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://en.wikipedia.org/wiki/MIT_License)
+
 An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchip.com/wwwproducts/en/ATtiny85). The control offers a full 8-bit resolution for a standard RC servo. The control is setup via timer-1 as it offers the the required prescaler to get a 250 kHz timer frequency from an 8 MHz clocked CPU. This allows for approximately 256 steps (8-bit) over a 1 millisecond period.
 
 ## Features
