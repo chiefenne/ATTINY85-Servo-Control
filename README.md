@@ -10,7 +10,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  - A standard RC servo normally operates a total angle of approximately 90° (+/- 45°)
  - This is done via a 50 Hz PWM signal with a duty cycle of 5% (minimum position) to 10% (maximum position)
  - This means a 20 millisecond PWM signal with a duty cycle of 1 ms to 2 ms
- - To get the full resolution possible by the 8-bit microcontroller, the *8-bit Timer/Counter1* is setup so that it takes the 8-bit range (256 steps) for the complete duty cycle variation, i.e. 1 millisecond
+ - To get the full resolution of the 8-bit microcontroller, the *8-bit Timer/Counter1* is setup so that it takes the 8-bit range (256 steps) for the complete duty cycle variation, i.e. 1 millisecond
  - With this setup a resolution of 0.35° per step is possible which is enough for a smooth servo motion
  - A potentiometer can be attached (configured in function *Init_ADC* vi the MUX bits for PB3) and used to control the servo position (tested with a 10k potentiometer)
  - An LED attached to LED_PORT indicates the servo center position (use a 200 Ohm resistor for the LED)
