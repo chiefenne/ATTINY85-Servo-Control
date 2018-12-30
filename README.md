@@ -10,7 +10,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  - A standard RC servo normally operates a total angle of approximately 90° (+/- 45°)
  - This is done via a 50 Hz PWM signal with a duty cycle of 5% (minimum position) to 10% (maximum position)
  - This means a 20 millisecond PWM signal with a duty cycle of 1 ms to 2 ms
- - To get the full resolution possible by the 8-bit microcontroller, timer-1 is setup so that it takes the 8-bit range (256) for the complete duty cycle variation (i.e. 1 millisecond)
+ - To get the full resolution possible by the 8-bit microcontroller, the *8-bit Timer/Counter1* is setup so that it takes the 8-bit range (256) for the complete duty cycle variation (i.e. 1 millisecond)
  - With 8-bit, i.e. 256 steps, a resolution of 0.35° per step is possible
  - A potentiometer can be attached (configured in function *Init_ADC* for PB3) and used to control the servo position (tested with a 10k potentiometer)
  - An LED attached to LED_PORT indicates the servo center position (use a 200 Ohm resitor for the LED)
@@ -28,7 +28,7 @@ Obviously, before use, the code *main.c* needs to be programmed on the device vi
 ## Prerequisites
  - For the code to work the CPU needs to run at 8 MHz (this is NOT the factory default)
  - The fuse **CKDIV8** has to be unset, otherwise the CPU would run at 1 MHz
- - As an alternative the **CKDIV8** could be left as is (factory default), but then the prescaler for timer-1 has to be set to **4** (using the CS1x bits in the timer-1 control register TCCR1). This alternative is untested.
+ - As an alternative the **CKDIV8** could be left as is (factory default), but then the prescaler for the *8-bit Timer/Counter1* has to be set to **4** (using the CS1x bits in the *8-bit Timer/Counter1* control register TCCR1). This alternative is untested.
 
  ## Additional information
  - Official MICROCHIP [ATTINY85 datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
