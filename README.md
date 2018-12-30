@@ -1,7 +1,7 @@
 
 # ATTINY85 Servo Control
 
-An RC servo control using an AVR ATTINY85 microcontroller. The control offers a full 8-bit resolution for a standard RC servo. The control is setup via timer-1 as it offers the the required prescaler to get a 250 kHz timer frequency from an 8 MHz clocked CPU. This allows for approximately 256 steps (8-bit) over a 1 millisecond period.
+An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchip.com/wwwproducts/en/ATtiny85). The control offers a full 8-bit resolution for a standard RC servo. The control is setup via timer-1 as it offers the the required prescaler to get a 250 kHz timer frequency from an 8 MHz clocked CPU. This allows for approximately 256 steps (8-bit) over a 1 millisecond period.
 
 ## Features
  - The servo can be moved to 256 positions within its 1ms-2ms duty range
@@ -20,6 +20,9 @@ An RC servo control using an AVR ATTINY85 microcontroller. The control offers a 
  - For the code to work the CPU needs to run at 8 MHz (this is NOT the factory default)
  - The fuse **CKDIV8** has to be unset, otherwise the CPU would run at 1 MHz
  - As an alternative the **CKDIV8** could be left as is (factory default), but then the prescaler for timer-1 has to be set to **4** (using the CS1x bits in the timer-1 control register TCCR1). This alternative is untested.
+
+ ## Additional information
+ - Official MICROCHIP [ATTINY85 datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
 
 
 Distributed under the MIT license.
