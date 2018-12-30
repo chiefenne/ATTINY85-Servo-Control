@@ -13,7 +13,6 @@ An RC servo control using an AVR ATTINY85 microcontroller. The control offers a 
 
 ## Credits
  - The idea was found in the [AVR Freaks Forum](https://www.avrfreaks.net/comment/810846#comment-810846) posted by user **JimK**
- - Coding done by myself
 
 ## Prerequisites
  - For the code to work the CPU needs to run at 8 MHz (this is NOT the factory default)
