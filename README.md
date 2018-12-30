@@ -27,6 +27,3 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
 <br>
 <br>
 Distributed under the MIT license.
-<br>
-<br>
-Andreas Ennemoser – andreas.ennemoser@aon.at
