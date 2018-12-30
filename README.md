@@ -24,6 +24,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  ## Additional information
  - Official MICROCHIP [ATTINY85 datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
 
-<br>
-<br>
+<br></br>
 Distributed under the MIT license. See [LICENSE](https://github.com/chiefenne/ATTINY85-Servo-Control/blob/master/LICENSE) for more information.
+
+
