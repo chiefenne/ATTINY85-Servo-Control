@@ -16,7 +16,7 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  - An LED attached to LED_PORT indicates the servo center position (use a 200 Ohm resitor for the LED)
  - The pins for servo and LED can be configured by the corresponding macros (SERVO_PORT, LED_PORT). Do not use VCC, GND and RESET pins
 
-## Example Configuration
+## Example Breadboard Configuration
 ![](images/Fritzing_Layout.png)
 
 ## Credits
