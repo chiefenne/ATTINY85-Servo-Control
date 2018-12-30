@@ -12,7 +12,8 @@ An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchi
  - This means a 20 millisecond PWM signal with a duty cycle of 1 ms to 2 ms
  - To get the full resolution possible by the 8-bit microcontroller, timer-1 is setup so that it takes the 8-bit range (256) for the complete duty cycle variation (i.e. 1 millisecond)
  - With 8-bit, i.e. 256 steps, a resolution of 0.35° per step is possible
- - An LED indicates the servo center position
+ - A potentiometer can be attached (configured in function *Init_ADC* for PB3) and used to control the servo position (tested with a 10k potentiometer)
+ - An LED attached to LED_PORT indicates the servo center position (use a 200 Ohm resitor for the LED)
  - The pins for servo and LED can be configured by the corresponding macros (SERVO_PORT, LED_PORT). Do not use VCC, GND and RESET pins
 
 ## Credits
