@@ -11,7 +11,7 @@ An RC servo control using an AVR ATTINY85 microcontroller. The control offers a 
  - To get the full resolution possible by the 8-bit microcontroller, timer-1 is setup so that it takes the 8-bit range (256) for the complete duty cycle variation (i.e. 1 millisecond)
  - With 8-bit, i.e. 256 steps, a resolution of 0.35° per step is possible
  - An LED indicates the servo center position
- - Servo and LED pins can be configured by the corresponding macros in the code
+ - The pins for servo and LED can be configured by the corresponding macros (SERVO_PORT, LED_PORT). Do not use VCC, GND and RESET pins
 
 ## Credits
  - The idea was found in the [AVR Freaks Forum](https://www.avrfreaks.net/comment/810846#comment-810846) posted by user **JimK**
