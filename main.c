@@ -102,7 +102,7 @@ void Init_TIMER(){
     // the CPU runs at 8MHz (requires that CKDIV8 fuse is NOT set)
     // timer 1 is used as it allows for more prescalers; here 32 is used to come from 8MHz to 250kHz
 
-    TCCR1 |= (1 << CS12) | (1 << CS11);      // set prescaler of timer1 to 32 --> 250kHz timer @8MHz CPU
+    TCCR1 |= (1 << CS12) | (1 << CS11);      // set prescaler of timer1 to 32
 
 }
 
