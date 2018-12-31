@@ -6,6 +6,8 @@
  * Description: ATTINY85 servo control with 8-bit resolution
  *              The servo can be moved to 256 positions within its 1ms-2ms duty range
  *              The angle normally is -45° / +45° --> 90° / 256 steps = 0.35° resolution
+ *
+ * Credits: JimK (AVR-Freaks forum) "https://www.avrfreaks.net/comment/810846#comment-810846"
  */ 
 
 // the clock speed on ATTINY85 is approx. 8MHz
@@ -98,8 +100,7 @@ void Init_TIMER(){
     // this function initializes the timer
     // the timer is set up in order to last approx. 1ms per overflow
     // the CPU runs at 8MHz (requires that CKDIV8 fuse is NOT set)
-    // timer 1 is used as it allows for more prescalers; here 32 is used to come from (MHz to 250kHz
-    // solution derived from this idea: "https://www.avrfreaks.net/comment/810846#comment-810846"
+    // timer 1 is used as it allows for more prescalers; here 32 is used to come from 8MHz to 250kHz
 
     TCCR1 |= (1 << CS12) | (1 << CS11);      // set prescaler of timer1 to 32 --> 250kHz timer @8MHz CPU
 
