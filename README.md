@@ -33,7 +33,7 @@ Obviously, before use, the code **main.c** needs to be programmed on the device 
 <!--- HTML code used in order to be able to resize image -->
 <img src="images/Fuse_Settings.png" alt="drawing" width="600"/>
 
-**Fuse set in ATMEL Studio 7 - CKDIV8 unchecked for 8 MHz clock speed**
+**Setting of fuses in ATMEL Studio 7 - CKDIV8 unchecked for 8 MHz clock speed**
 
 ## Additional information
  - Official MICROCHIP [ATTINY85 datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
