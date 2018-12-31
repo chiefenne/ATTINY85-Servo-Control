@@ -29,9 +29,10 @@
 #include <avr/interrupt.h>
 
 // pin configuration (PB5 is RESET and would require special treatment if used)
+// take care that each port is assigned only once
 #define SERVO_PORT PB0                       // define pin where servo is attached (one of PB0, PB1, PB2, PB3, PB4)
 #define LED_PORT PB4                         // define pin where LED is attached (one of PB0, PB1, PB2, PB3, PB4)
-#define POTENTIOMETER_PORT                   // define pin where potentiometer is attached (one of PB2, PB3, PB4)
+#define POTENTIOMETER_PORT PB3               // define pin where potentiometer is attached (one of PB2, PB3, PB4)
 
 #define SERVO_PWM_ON PORTB |= (1 << SERVO_PORT)
 #define SERVO_PWM_OFF PORTB &= ~(1 << SERVO_PORT)
