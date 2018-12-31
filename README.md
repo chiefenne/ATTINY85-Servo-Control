@@ -30,7 +30,7 @@ Obviously, before use, the code **main.c** needs to be programmed on the device 
  - The fuse **CKDIV8** has to be unset, otherwise the CPU would run at 1 MHz
  - As an alternative the **CKDIV8** could be left as is (factory default), but then the prescaler for the *8-bit Timer/Counter1* has to be set to **4** (using the CS1x bits in the *8-bit Timer/Counter1* control register TCCR1). This alternative is untested.
 
-![Hello](images/Fuse_Settings.png)
+![Hello](images/Fuse_Settings.png =500x)
 **Fuse settings in ATMEL Studio 7 - CKDIV8 unchecked for 8 MHz clock speed**
 
 ## Additional information
