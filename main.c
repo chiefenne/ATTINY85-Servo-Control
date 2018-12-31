@@ -134,8 +134,8 @@ void Init_INTERRUPTS(){
 void LED_Control(){
     
     // this function switches the LED on if servo center position is reached
-    
-    if ( (servo_pwm_duty_int > 126) && (servo_pwm_duty_int < 128) ) {
+    uint8_t shift = 8;                       // fine tune center position
+    if ( (servo_pwm_duty_int > 125 + shift) && (servo_pwm_duty_int < 127 + shift) ) {
         LED_ON;
     }
     else {
@@ -156,7 +156,7 @@ int main(void)
 
         adc_value = Read_ADC();              // get 10-bit ADC result (0-1023)
 
-        servo_pwm_duty = Map_ADC(adc_value, 0, 1023, 0, 255);
+        servo_pwm_duty = Map_ADC(adc_value, 0, 1023, 1, 254);    // 1 and 254 to stay away from adjacent overflows
         servo_pwm_duty_int = (int)servo_pwm_duty;
         
         LED_Control();
@@ -182,7 +182,7 @@ ISR(TIMER1_OVF_vect){
         // adds in the compare B match interrupt ISR the remaining part of servo pulse on top of this minimum 1ms pulse
         // can be anything between 0ms and 1ms (or 0-255 steps according to timer1 setup)
         OCR1B = servo_pwm_duty_int;          // set Timer/Counter1 Output Compare RegisterB (datasheet page 91)
-        TCNT1 = 1;                           // reset counter for the upcoming match with OCR1B
+        TCNT1 = 0;                           // reset counter for the upcoming match with OCR1B
     }
 
 }
