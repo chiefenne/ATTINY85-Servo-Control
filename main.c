@@ -8,9 +8,10 @@
  *              The angle normally is -45° / +45° --> 90° / 256 steps = 0.35° resolution
  */ 
 
-// default clock speed on ATTINY85 is approx. 8MHz
-// if fuse CKDIV8 is set (factory default), a prescaler of 8 is used --> would result in 1MHz clock
-// actual frequency can be measured @PB4 with CKOUT fuse set
+// the clock speed on ATTINY85 is approx. 8MHz
+// if fuse CKDIV8 is set (factory default), a prescaler of 8 is used which results in a 1MHz clock
+// for this code CKDIV8 needs to be unset as the code relies on 8MHz CPU speed
+// the actual frequency can be measured at PB4 if the CKOUT fuse is set
 
 
 //             ATTINY85 PIN Configuration (for more details see datasheet page 2)
