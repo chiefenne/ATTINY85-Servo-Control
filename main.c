@@ -18,7 +18,7 @@
 
 //             ATTINY85 PIN Configuration (for more details see datasheet page 2)
 //                  -------
-//  RESET / PB5 ---|       |--- VCC
+//  RESET / PB5 ---| o     |--- VCC
 //   ADC3 / PB3 ---|       |--- PB2 / SCK
 //          PB4 ---|       |--- PB1 / MISO
 //          GND ---|       |--- PB0 / MOSI
@@ -28,12 +28,14 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-// macros
-#define SERVO_PORT PB0
+// pin configuration (PB5 is RESET and would require special treatment if used)
+#define SERVO_PORT PB0                       // define pin where servo is attached (one of PB0, PB1, PB2, PB3, PB4)
+#define LED_PORT PB4                         // define pin where LED is attached (one of PB0, PB1, PB2, PB3, PB4)
+#define POTENTIOMETER_PORT                   // define pin where potentiometer is attached (one of PB2, PB3, PB4)
+
 #define SERVO_PWM_ON PORTB |= (1 << SERVO_PORT)
 #define SERVO_PWM_OFF PORTB &= ~(1 << SERVO_PORT)
 
-#define LED_PORT PB4
 #define LED_ON PORTB |= (1 << LED_PORT)
 #define LED_OFF PORTB &= ~(1 << LED_PORT)
 
@@ -49,7 +51,16 @@ void Init_ADC(void){
     // this function initializes the ADC
 
     // do NOT left shift result (ADLAR) when reading ADC (see ADC_Read)!!!
-    ADMUX |= (1 << MUX1) | (1 << MUX0);      // use ADC3 at PB3 for ADC input (datasheet page 135)
+    
+    if (POTENTIOMETER_PORT == PB2){
+        ADMUX |= (1 << MUX0);                // use ADC2 at PB2 for ADC input (datasheet page 135)
+    }
+    else if (POTENTIOMETER_PORT == PB3){
+        ADMUX |= (1 << MUX1) | (1 << MUX0);  // use ADC3 at PB3 for ADC input (datasheet page 135)
+    }
+    else if (POTENTIOMETER_PORT == PB4){
+        ADMUX |= (1 << MUX1);                // use ADC4 at PB4 for ADC input (datasheet page 135)
+    }
     
     // input clock frequency should be between 50kHz and 200kHz to get maximum resolution (datasheet page 125)
     // 8MHz CPU with ADC prescaler of 64:  8000000 / 64 = 125000 --> 125 kHz
