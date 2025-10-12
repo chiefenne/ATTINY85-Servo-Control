@@ -3,18 +3,28 @@
 
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://en.wikipedia.org/wiki/MIT_License)
 
-An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchip.com/wwwproducts/en/ATtiny85). The control offers an interrupt driven full 8-bit resolution for a standard RC servo. The control is setup via the *8-bit Timer/Counter1* as it offers the the required prescaler (CK/32) to get a 250 kHz timer frequency from an 8 MHz clocked CPU. This allows for approximately 256 steps (8-bit) over a 1 millisecond period.
+An RC servo control using an [AVR ATTINY85 microcontroller](https://www.microchip.com/wwwproducts/en/ATtiny85). This implementation uses **hardware PWM** for high-precision servo control with ~1 µs resolution. The system generates a 50 Hz PWM signal (20 ms period) with pulse widths ranging from 1-2 ms, providing smooth and jitter-free servo operation.
 
 ## Features
- - The servo can be moved to 256 positions within its 1ms-2ms duty range
- - A standard RC servo normally operates a total angle of approximately 90° (+/- 45°)
- - This is done via a 50 Hz PWM signal with a duty cycle of 5% (minimum position) to 10% (maximum position)
- - This means a 20 millisecond PWM signal with a duty cycle of 1 ms to 2 ms
- - To get the full resolution of the 8-bit microcontroller, the *8-bit Timer/Counter1* is setup so that it takes the 8-bit range (256 steps) for the complete duty cycle variation, i.e. 1 millisecond
- - With this setup a resolution of 0.35° per step is possible which is enough for a smooth servo motion
- - A potentiometer can be attached (configured in function *Init_ADC* via the MUX bits for PB3) and used to control the servo position (tested with a 10k&Omega; potentiometer)
- - An LED attached to LED_PORT indicates the servo center position (use a 200&Omega; resistor for the LED)
- - The pins for servo and LED can be configured by the corresponding macros (SERVO_PORT, LED_PORT). Do not use VCC, GND and RESET pins
+ - **High Resolution**: ~1000 discrete servo positions (vs. previous 256 steps)
+ - **Hardware PWM**: Zero interrupt overhead and jitter-free operation using Timer1's OC1B output
+ - **Precision**: ~1 µs timing resolution with 0.09° per step (improved from 0.35°/step)
+ - **Standard RC Servo Compatible**: 50 Hz PWM with 1-2 ms pulse width range
+ - **10-bit ADC Control**: Potentiometer input provides full 0-1023 range mapped to servo positions
+ - **LED Indicator**: Shows when servo is near center position (±25 µs window)
+ - **Low CPU Load**: Hardware timer handles all PWM generation automatically
+ - **Robust Design**: Separate power considerations and noise immunity for reliable operation
+
+## Technical Specifications
+ - **Timer Configuration**: Timer1 Fast PWM mode with OCR1C as TOP
+ - **Clock Frequency**: 8 MHz CPU with prescaler/8 → 1 MHz timer clock
+ - **PWM Period**: 20,000 µs (50 Hz frame rate)
+ - **Pulse Range**: 1000-2000 µs (1-2 ms)
+ - **Resolution**: 1 µs per timer tick
+ - **Pin Assignment**:
+   - PB4 (OC1B): Servo signal output
+   - PB3 (ADC3): Potentiometer input (10kΩ recommended)
+   - PB0: LED indicator output (use 200Ω resistor)
 
 ## Example Breadboard Configuration
 
